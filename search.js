@@ -27,7 +27,8 @@ const searchUnsplash = function(term) {
           title: (result.description || "Untitled"),
           name: result.user.name,
           location: (result.user.location || "Planet Earth"),
-          userLink: (result.user.portfolio_url || "https://bit.ly/2Z3y4xS")
+          userLink: (result.user.portfolio_url || "https://bit.ly/2Z3y4xS"),
+          colour: (result.color || "#cccccc")
         }
       })
     })
@@ -42,7 +43,7 @@ const addResults = function(results) {
   results.forEach(result => {
     resultsTag.innerHTML = resultsTag.innerHTML + `
       <div class="result">
-        <div class="image">
+        <div class="image" style="background-color: ${result.colour}">
           <img src="${result.src}" alt="${result.alt}">
         </div>
         <p>Shot by: <a href="${result.userLink}" target="_blank">${result.name}</a> from ${result.location}</p>
