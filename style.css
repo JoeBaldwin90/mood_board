@@ -75,8 +75,43 @@ div.result span.loading {
   background-color: #eee;
   height: 12px;
   width: 50%;
+  -webkit-animation-name: pulse;
+          animation-name: pulse;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
 }
 
 div.result p span.loading {
   width: 30%;
+  -webkit-animation-name: grow;
+          animation-name: grow;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+/* Keyframes */
+@-webkit-keyframes pulse {
+  from {background-color: #eee;}
+  to   {background-color: #ddd;}
+}
+@keyframes pulse {
+  from {background-color: #eee;}
+  to   {background-color: #ddd;}
+}
+
+@-webkit-keyframes grow {
+  from {background-color: #eee; width: 30%;}
+  to   {background-color: #ddd; width: 20%;}
+}
+@keyframes grow {
+  from {background-color: #eee; width: 30%;}
+  to   {background-color: #ddd; width: 20%;}
 }
