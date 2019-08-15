@@ -21,7 +21,8 @@ const searchUnsplash = function (term) {
       // Format data into a new array of new objects
       return data.results.map(result => {
         return {
-          imageSrc: result.urls.regular
+          imageSrc: result.urls.regular,
+          imageAlt: result.alt_description
         }
       })
     })
@@ -33,6 +34,9 @@ formEl.addEventListener("submit", function(event) {
   const searchTerm = inputEl.value
   // Pass in search term to and invoke searchUnsplash
   searchUnsplash(searchTerm)
+    .then(results => {
+      addResults(results)
+    })
 
   event.preventDefault()
 })
