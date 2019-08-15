@@ -18,7 +18,12 @@ const searchUnsplash = function (term) {
   })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      // Format data into a new array of new objects
+      return data.results.map(result => {
+        return {
+          imageSrc: result.urls.regular
+        }
+      })
     })
 }
 
