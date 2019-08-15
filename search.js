@@ -5,12 +5,12 @@ const resultsTag = document.querySelector("section.results")
 
 // API details
 const accessKey = "f1f7a17669caf3a009c49d955d4089fac120a5cc12b6c840bab42a460c981154"
-const apiUrl = `https://api.unsplash.com/search/photos/?per_page=24&query=blue`
+const apiUrl = `https://api.unsplash.com/search/photos/?per_page=24&query=`
 
 // Show related images to user's search term
 const searchUnsplash = function(term) {
 
-  return fetch(apiUrl, {
+  return fetch(apiUrl + term, {
       // Headers
       method: "GET",
       headers: {
