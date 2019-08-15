@@ -8,15 +8,15 @@ const accessKey = "f1f7a17669caf3a009c49d955d4089fac120a5cc12b6c840bab42a460c981
 const apiUrl = `https://api.unsplash.com/search/photos/?per_page=24&query=blue`
 
 // Show related images to user's search term
-const searchUnsplash = function (term) {
+const searchUnsplash = function(term) {
 
   return fetch(apiUrl, {
-    // Headers
-    method: "GET",
-    headers: {
-      "Authorization": "Client-ID " + accessKey
-    }
-  })
+      // Headers
+      method: "GET",
+      headers: {
+        "Authorization": "Client-ID " + accessKey
+      }
+    })
     .then(response => response.json())
     .then(data => {
       // Format data into a new array of new objects
@@ -30,9 +30,22 @@ const searchUnsplash = function (term) {
 }
 
 // Add results to page
-const addResults = function (results) {
+const addResults = function(results) {
   // Clear loading elements
   resultsTag.innerHTML = ""
+
+  // Loop over the results and add to resultsTag
+  results.forEach(result => {
+    resultsTag.innerHTML = resultsTag.innerHTML + `
+      <div class="result">
+        <div class="image">
+          <img src="${result.imageSrc}" alt="${result.imageAlt}">
+        </div>
+        <h2><span class="loading"></span></h2>
+        <p><span class="loading"></span></p>
+      </div>
+      `
+  })
 }
 
 // Get info from inputEl
