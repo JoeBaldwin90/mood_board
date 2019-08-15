@@ -1,6 +1,7 @@
 // Search form elements
 const formEl = document.querySelector("form")
 const inputEl = formEl.querySelector("input")
+const resultsTag = document.querySelector("section.results")
 
 // API details
 const accessKey = "f1f7a17669caf3a009c49d955d4089fac120a5cc12b6c840bab42a460c981154"
@@ -26,6 +27,12 @@ const searchUnsplash = function (term) {
         }
       })
     })
+}
+
+// Add results to page
+const addResults = function (results) {
+  // Clear loading elements
+  resultsTag.innerHTML = ""
 }
 
 // Get info from inputEl
