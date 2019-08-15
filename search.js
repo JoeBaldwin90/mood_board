@@ -46,6 +46,7 @@ const addResults = function(results) {
         <div class="image" style="background-color: ${result.colour}">
           <img src="${result.src}" alt="${result.alt}">
         </div>
+        <h2>${result.title}</h2>
         <p>Shot by: <a href="${result.userLink}" target="_blank">${result.name}</a> from ${result.location}</p>
       </div>
       `

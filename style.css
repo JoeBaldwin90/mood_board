@@ -77,6 +77,16 @@ body {
   background-color: #fff;
 }
 
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  text-decoration: underline;
+  padding-bottom: 2px;
+}
+
 input {
   font-size: 16px;
   width: 100%;
@@ -110,10 +120,14 @@ div.result div.image img {
           animation: fade 1.5s 0.5s linear both;
 }
 
-div.result h2,
-div.result p {
-  font-size: 16px;
+div.result h2 {
+  font-size: 12px;
+  font-weight: 600;
   margin-bottom: 0.5em;
+}
+
+div.result p {
+  font-size: 12px;
 }
 
 div.result span.loading {
