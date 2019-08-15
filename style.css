@@ -58,6 +58,13 @@ div.result div.image {
   margin-bottom: 1em;
 }
 
+div.result div.image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 div.result h2,
 div.result p {
   margin-bottom: 0.5em;
