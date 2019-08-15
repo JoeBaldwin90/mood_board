@@ -22,8 +22,12 @@ const searchUnsplash = function(term) {
       // Format data into a new array of new objects
       return data.results.map(result => {
         return {
-          imageSrc: result.urls.regular,
-          imageAlt: result.alt_description
+          src: result.urls.regular,
+          alt: result.alt_description,
+          description: result.description,
+          name: result.user.name,
+          location: result.user.location,
+          userLink: result.user.portfolio_url
         }
       })
     })
@@ -39,10 +43,9 @@ const addResults = function(results) {
     resultsTag.innerHTML = resultsTag.innerHTML + `
       <div class="result">
         <div class="image">
-          <img src="${result.imageSrc}" alt="${result.imageAlt}">
+          <img src="${result.src}" alt="${result.alt}">
         </div>
-        <h2><span class="loading"></span></h2>
-        <p><span class="loading"></span></p>
+        <p>Shot by: <a href="${result.userLink}" target="_blank">${result.name}</a> from ${result.location}</p>
       </div>
       `
   })
