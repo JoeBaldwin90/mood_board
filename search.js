@@ -28,7 +28,7 @@ const searchUnsplash = function(term) {
           name: result.user.name,
           location: (result.user.location || "Planet Earth"),
           userLink: (result.user.portfolio_url || "https://bit.ly/2Z3y4xS"),
-          colour: (result.color || "#cccccc")
+          colour: (result.color || "#cccccc") + "40" // Transparency
         }
       })
     })
