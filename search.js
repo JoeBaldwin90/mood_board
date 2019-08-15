@@ -24,10 +24,10 @@ const searchUnsplash = function(term) {
         return {
           src: result.urls.regular,
           alt: result.alt_description,
-          description: result.description,
+          title: (result.description || "Untitled"),
           name: result.user.name,
-          location: result.user.location,
-          userLink: result.user.portfolio_url
+          location: (result.user.location || "Planet Earth"),
+          userLink: (result.user.portfolio_url || "https://bit.ly/2Z3y4xS")
         }
       })
     })
