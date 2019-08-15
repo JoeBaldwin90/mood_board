@@ -31,3 +31,45 @@ body {
   color: #333;
   background-color: #fff;
 }
+
+form {
+  /* tbc */
+}
+
+input {
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  background-color: #eee;
+  outline: none;
+  padding: 2em;
+}
+
+section.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 2em 2em;
+  padding: 2em;
+}
+
+div.result div.image {
+  background: #eee;
+  height: 400px;
+  margin-bottom: 1em;
+}
+
+div.result h2,
+div.result p {
+  margin-bottom: 0.5em;
+}
+
+div.result span.loading {
+  display: block;
+  background-color: #eee;
+  height: 12px;
+  width: 50%;
+}
+
+div.result p span.loading {
+  width: 30%;
+}
