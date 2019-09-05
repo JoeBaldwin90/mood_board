@@ -1,5 +1,5 @@
 # Mood Board
-This application allows creative users to type their "mood" into the search form (e.g. summer, festival, city). The app returns related images befitting the search term from the public Unsplash API. [Here's what the site looks like](https://bit.ly/2KBoFth)
+This application allows creative users to type their "mood" into the search form (e.g. summer, festival, city). The app returns related images befitting the search term from the public Unsplash API. [Try the website yourself](http://moodsfordays.surge.sh/)
 
 ## Intention
 Integrate with an API which required authorisation headers.
