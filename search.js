@@ -19,17 +19,18 @@ const searchUnsplash = function(term) {
     })
     .then(response => response.json())
     .then(data => {
+      // console.table(data.results)
       // Format data into a new array of new objects
       return data.results.map(result => {
         return {
           src: result.urls.regular,
           alt: result.alt_description,
-          title: (result.description || "Untitled"),
+          title: result.description || "Untitled",
           name: result.user.name,
-          location: (result.user.location || "Planet Earth"),
-          userLink: (result.user.portfolio_url || "https://bit.ly/2Z3y4xS"),
+          location: result.user.location || "Planet Earth",
+          userLink: result.user.portfolio_url || "https://bit.ly/2Z3y4xS",
           colour: (result.color || "#cccccc") + "40" // Transparency
-        }
+        };
       })
     })
 }
@@ -39,25 +40,26 @@ const addResults = function(results) {
   // Clear loading elements
   resultsTag.innerHTML = ""
 
-  // Loop over the results and add to resultsTag
   results.forEach(result => {
-    resultsTag.innerHTML = resultsTag.innerHTML + `
+    resultsTag.innerHTML =
+      resultsTag.innerHTML +
+      `
       <div class="result">
         <div class="image" style="background-color: ${result.colour}">
           <img src="${result.src}" alt="${result.alt}">
         </div>
-        <h2>${result.title}</h2>
+        <h2>${result.title.length > 50 ? result.title.substring(0, 50) + "..." : result.title}</h2>
         <p>Shot by: <a href="${result.userLink}" target="_blank">${result.name}</a> from ${result.location}</p>
       </div>
-      `
+      `;
   })
 }
 
-// Get info from inputEl
+// Get info from search input
 formEl.addEventListener("submit", function(event) {
-  // Get search term
+
   const searchTerm = inputEl.value
-  // Pass in search term to and invoke searchUnsplash
+  
   searchUnsplash(searchTerm)
     .then(results => {
       addResults(results)

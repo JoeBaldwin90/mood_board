@@ -1,12 +1,21 @@
 /* Keyframes */
+
 @-webkit-keyframes pulse {
-  from { background-color: #eee; }
-  to   { background-color: #ddd; }
+  from {
+    background-color: #eee;
+  }
+  to {
+    background-color: #ddd;
+  }
 }
 
 @keyframes pulse {
-  from { background-color: #eee; }
-  to   { background-color: #ddd; }
+  from {
+    background-color: #eee;
+  }
+  to {
+    background-color: #ddd;
+  }
 }
 
 @-webkit-keyframes grow {
@@ -14,7 +23,6 @@
     background-color: #eee;
     width: 30%;
   }
-
   to {
     background-color: #ddd;
     width: 20%;
@@ -26,7 +34,6 @@
     background-color: #eee;
     width: 30%;
   }
-
   to {
     background-color: #ddd;
     width: 20%;
@@ -34,16 +41,25 @@
 }
 
 @-webkit-keyframes fade {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* ----- Reset ----- */
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -69,17 +85,19 @@ img {
 }
 
 /* ----- ----- ----- */
+
+@import url('https://fonts.googleapis.com/css?family=Biryani:300,400,700,900&display=swap');
 body {
-  font-family: Arial;
+  font-family: "Biryani", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #333;
-  background-color: #fff;
+  color: rgb(0, 0, 0);
+  background-color: white;
 }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: rgba(0, 191, 255, 1);
 }
 
 a:hover {
@@ -87,18 +105,65 @@ a:hover {
   padding-bottom: 2px;
 }
 
-input {
-  font-size: 16px;
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em;
+  background-color: white;
+  color: rgba(0, 191, 255, 1);
+}
+
+#title {
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+#navigation ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-link {
+  font-weight: 300;
+  margin-left: 1em;
+  cursor: pointer;
+  border: 1px solid rgba(0, 191, 255, 1);
+  border-radius: 1em;
+  padding: 0.25em 1.25em;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  border: 1px solid rgba(0, 191, 255, 1);
+  color: white;
+  background-color: rgba(0, 191, 255, 1);
+}
+
+.nav-link:first-of-type {
+  margin-left: 0;
+}
+
+#search-input {
+  font-size: 1.75em;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  background: rgb(0, 191, 255);
+  background: linear-gradient(22deg, rgba(0, 191, 255, 1) 30%, rgba(0, 209, 255, 1) 86%);
   width: 100%;
   border: none;
-  background-color: #eee;
   outline: none;
-  padding: 2em;
+  padding: 1.5em;
+}
+
+#search-input::placeholder {
+  color: rgba(245, 245, 245, 0.76)
 }
 
 section.results {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   grid-gap: 2em 2em;
   padding: 2em;
 }
@@ -117,30 +182,55 @@ div.result div.image img {
   -o-object-fit: cover;
   object-fit: cover;
   -webkit-animation: fade 1.5s 0.5s linear both;
-          animation: fade 1.5s 0.5s linear both;
+  animation: fade 1.5s 0.5s linear both;
 }
 
 div.result h2 {
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 0.5em;
+  font-size: 1em;
+  font-weight: 300;
+  margin-bottom: 0.25em;
 }
 
 div.result p {
-  font-size: 12px;
+  font-size: 0.825em;
+  font-weight: 300;
 }
 
 div.result span.loading {
   display: block;
-  background-color: #eee;
+  background-color: rgb(128, 128, 128);
   height: 12px;
   width: 50%;
   -webkit-animation: pulse 1.75s infinite alternate;
-          animation: pulse 1.75s infinite alternate;
+  animation: pulse 1.75s infinite alternate;
 }
 
 div.result p span.loading {
   width: 30%;
   -webkit-animation: grow 2s infinite alternate;
-          animation: grow 2s infinite alternate;
+  animation: grow 2s infinite alternate;
+}
+
+/* Responsive styles */
+@media (max-width: 33.5em) {
+  #header {
+    padding: 1em 1em;
+  }
+  #title {
+    font-size: 1em;
+    font-weight: 700;
+  }
+  .nav-link {
+    margin-left: 0.5em;
+    padding: 0em 0.5em;
+  }
+  #search-input {
+    font-size: 1.25em;
+    padding: 1.5em;
+    line-height: 1.5;
+  }
+  section.results {
+    padding: 1em 1em;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 }
